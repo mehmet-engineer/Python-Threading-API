@@ -3,7 +3,7 @@ import threading
 
 """
   @author: Mehmet Kahraman
-  @date: 21.11.2023
+  @date: 26.11.2023
   @about: useful threading methods and single thread termination
 """
 
@@ -45,26 +45,9 @@ class ThreadCreator():
         while True:
             if self.run_flag == True:
                 while True:
-                    if self.run_flag == False:
+                    if (self.run_flag == False) or (self.kill_flag == True):
                         break
                     self.callback_function()
                     time.sleep(self.sleep_value)
             if self.kill_flag == True:
                 break
-
-
-if __name__ == "__main__":
-
-    def my_callback_function():
-        print("OK.")
-    
-    hz = 1
-    
-    process = ThreadCreator(hz, my_callback_function)
-    process.start_thread()
-    time.sleep(2)
-    process.stop_thread()
-    time.sleep(2)
-    process.kill_thread()
-    time.sleep(2)
-    process.wait_for_kill()
