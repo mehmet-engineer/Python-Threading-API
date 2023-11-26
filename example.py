@@ -24,6 +24,9 @@ thread2.stop_thread()
 time.sleep(3)
 
 print("\n Starting threads... \n")
+hz = 2
+thread1.set_thread_hz(hz)
+thread2.set_thread_hz(hz)
 thread1.start_thread()
 thread2.start_thread()
 

@@ -22,6 +22,10 @@ class ThreadCreator():
         self.thread = threading.Thread(target=self.thread_function, daemon=self.daemon)
         self.thread.start()
     
+    def set_thread_hz(self, hz):
+        self.hz = hz
+        self.sleep_value = 1 / self.hz
+    
     def start_thread(self):
         self.run_flag = True
     

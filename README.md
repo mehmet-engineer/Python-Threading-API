@@ -24,6 +24,10 @@ thread = ThreadCreator(hz, cb_function)
 # start the thread
 thread.start_thread()
 
+# set thread hz
+hz = 2
+thread.set_thread_hz(hz)
+
 # stop the thread
 thread.stop_thread()
 
